@@ -16,9 +16,6 @@ if ($email === "" || $pass === "") {
 }
 // ログインチェック
 try {
-    $pdo = new PDO($dsn, $user, $password);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stmt = $pdo->prepare('select id, name, password from user where email = ? limit 1');
     $stmt->bindValue(1, $email, PDO::PARAM_STR);
@@ -50,6 +47,7 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="assets/image/favicon.ico">
 </head>
 
 <body>
@@ -73,6 +71,9 @@ try {
             </form>
         </div>
         <a href="index.php">新規登録</a>
+        <p>ゲストは下記を利用してください<br>
+            ID:guest@example.com<br>
+            PW:Yq7tEsuk</p>
     </div>
 </body>
 

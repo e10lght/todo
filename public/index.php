@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-ini_set('display_errors', "On");
-
 session_start();
 
 require_once(dirname(__FILE__) . "/../library/library.php");
 require_once(dirname(__FILE__) . "/../config/connect.php");
+
+header("X-FRAME-OPTIONS: DENY");
 
 /**
  * フォーム入力された値がブランクかどうか判定する関数を定義
@@ -154,6 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>会員登録</title>
     <link rel="stylesheet" href="assets/css/front.css" />
+    <link rel="icon" href="assets/image/favicon.ico">
 </head>
 
 <body>
